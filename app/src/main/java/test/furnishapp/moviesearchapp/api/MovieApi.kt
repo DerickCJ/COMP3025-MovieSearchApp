@@ -1,4 +1,4 @@
-package test.furnishapp.moviesearchapp
+package test.furnishapp.moviesearchapp.api
 
 import okhttp3.*
 import java.io.IOException
