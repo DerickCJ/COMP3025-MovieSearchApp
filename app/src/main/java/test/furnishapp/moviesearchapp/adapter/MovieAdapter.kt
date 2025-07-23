@@ -1,4 +1,4 @@
-package test.furnishapp.moviesearchapp
+package test.furnishapp.moviesearchapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import test.furnishapp.moviesearchapp.databinding.ItemMovieBinding
+import test.furnishapp.moviesearchapp.model.Movie
 
 class MovieAdapter(
     private val movieList: MutableList<Movie>,
@@ -14,7 +15,8 @@ class MovieAdapter(
 
     inner class MovieViewHolder(val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder
+    {
         val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(binding)
     }
@@ -26,7 +28,7 @@ class MovieAdapter(
             yearTextView.text = movie.Year
             genreTextView.text = movie.Type
 
-            // 使用 Glide 加载电影海报
+            // Use Glide to load the poster image
             Glide.with(posterImageView.context)
                 .load(movie.Poster)
                 .placeholder(android.R.drawable.ic_menu_gallery)

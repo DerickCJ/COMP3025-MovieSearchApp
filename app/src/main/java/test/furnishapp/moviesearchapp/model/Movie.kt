@@ -1,4 +1,4 @@
-package test.furnishapp.moviesearchapp
+package test.furnishapp.moviesearchapp.model
 
 data class Movie(
     val Title: String,
