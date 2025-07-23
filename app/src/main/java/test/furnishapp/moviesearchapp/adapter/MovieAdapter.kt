@@ -9,7 +9,7 @@ import test.furnishapp.moviesearchapp.databinding.ItemMovieBinding
 import test.furnishapp.moviesearchapp.model.Movie
 
 class MovieAdapter(
-    private val movieList: MutableList<Movie>,
+    private var movieList: MutableList<Movie>,
     private val onItemClick: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
