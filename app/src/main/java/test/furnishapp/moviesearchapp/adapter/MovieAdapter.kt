@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import test.furnishapp.moviesearchapp.databinding.ItemMovieBinding
 import test.furnishapp.moviesearchapp.model.Movie
 
@@ -26,14 +25,12 @@ class MovieAdapter(
         holder.binding.apply {
             titleTextView.text = movie.Title
             yearTextView.text = movie.Year
-            genreTextView.text = movie.Type
+            genreTextView.text = "Movie"
+            imdbIdTextView.text = "IMDb: ${movie.imdbID}"
 
             // Use Glide to load the poster image
             Glide.with(posterImageView.context)
                 .load(movie.Poster)
-                .placeholder(android.R.drawable.ic_menu_gallery)
-                .error(android.R.drawable.ic_menu_report_image)
-                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(posterImageView)
 
             root.setOnClickListener {

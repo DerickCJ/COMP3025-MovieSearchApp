@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MovieSearchApp</string>
-    <string name="hint_search">Movie Nmae...</string>
+    <string name="app_title">Movie Search</string>
+    <string name="hint_search">Search for movies...</string>
     <string name="button_search">Search</string>
+    <string name="poster">Poster</string>
+    <string name="button_back">Back</string>
+    <string name="logo_content_description">Movie Search Logo</string>
 </resources>

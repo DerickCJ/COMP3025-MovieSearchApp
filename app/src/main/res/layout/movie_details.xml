@@ -3,7 +3,7 @@
     android:id="@+id/detailScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="@dimen/padding">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,75 +12,78 @@
 
         <ImageView
             android:id="@+id/detailPosterImageView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
+            android:layout_width="@dimen/lwidth"
+            android:layout_height="@dimen/height300"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@color/divider_color"
             android:contentDescription="@string/poster" />
 
         <TextView
             android:id="@+id/detailTitleTextView"
-            android:textSize="22sp"
+            android:textSize="@dimen/textSize"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie Title" />
+            android:text="" />
 
         <TextView
             android:id="@+id/detailDirectorTextView"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Director: xxx" />
+            android:text="" />
 
         <TextView
             android:id="@+id/detailActorsTextView"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/margin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Actors: xxx" />
+            android:text="" />
 
         <TextView
             android:id="@+id/detailGenreTextView"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/margin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Genre: xxx" />
+            android:text="" />
 
         <TextView
             android:id="@+id/detailYearTextView"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/margin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Year: 2023" />
+            android:text="" />
 
         <TextView
             android:id="@+id/detailRatingTextView"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/margin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rating: 8.1" />
+            android:text="" />
 
         <TextView
             android:id="@+id/detailPlotLabel"
-            android:text="Plot Description:"
+            android:text=""
             android:textStyle="bold"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/marginEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/detailPlotTextView"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/margin4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet..." />
+            android:text="" />
 
         <Button
             android:id="@+id/backButton"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/marginTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back" />
+            android:text="@string/button_back" />
     </LinearLayout>
 </ScrollView>

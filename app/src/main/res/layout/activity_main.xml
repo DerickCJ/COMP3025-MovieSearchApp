@@ -5,66 +5,110 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".MainActivity">
 
     <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="@dimen/layout_width"
-        android:layout_height="@dimen/layout_height"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintBottom_toTopOf="@id/searchContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/logo_size"
+        android:layout_height="@dimen/logo_size"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/logo_content_description"
+        android:layout_marginTop="@dimen/large_margin"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Search Container -->
-    <LinearLayout
-        android:id="@+id/searchContainer"
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/marginTop"
-        android:gravity="center"
+        android:text="@string/app_title"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text_color"
+        android:layout_marginTop="@dimen/medium_margin"
         app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/searchEditText"
-            android:layout_width="@dimen/search_box_width"
-            android:layout_height="@dimen/search_box_height"
-            android:hint="@string/hint_search"
-            android:paddingStart="@dimen/padding"
-            android:paddingEnd="@dimen/padding"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginEnd="@dimen/marginEnd"
-            android:inputType="text" />
+    <!-- Search Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
+        android:layout_marginTop="@dimen/large_margin"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/searchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/search_box_height"
-            android:text="@string/button_search"
-            android:minWidth="@dimen/button_width" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/medium_margin"
+            android:gravity="center_vertical">
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/search_box_height"
+                android:layout_weight="1"
+                android:hint="@string/hint_search"
+                android:inputType="text"
+                android:background="@null"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingEnd="@dimen/medium_margin"
+                android:textColor="@color/primary_text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:textSize="@dimen/search_text_size"
+                android:autofillHints="movieName"
+                android:maxLines="1"
+                android:imeOptions="actionSearch" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/divider_color"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin" />
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/search_box_height"
+                android:text="@string/button_search"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/button_text_size"
+                android:background="@color/primary_color"
+                android:paddingStart="@dimen/large_margin"
+                android:paddingEnd="@dimen/large_margin"
+                android:layout_marginStart="@dimen/small_margin"
+                style="?attr/materialButtonStyle" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <!-- Search Result -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="@dimen/zero"
-        android:layout_height="@dimen/zero"
-        android:visibility="gone"
-        android:alpha="@dimen/zero"
-        android:layout_marginTop="@dimen/padding"
-        android:layout_marginStart="@dimen/padding"
-        android:layout_marginEnd="@dimen/padding"
-        app:layout_constraintTop_toBottomOf="@id/searchContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/medium_margin"
+        app:layout_constraintTop_toBottomOf="@id/searchCard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
