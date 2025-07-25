@@ -2,6 +2,7 @@ package test.furnishapp.moviesearchapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,7 +34,11 @@ class MainActivity : AppCompatActivity() {
         binding.searchButton.setOnClickListener {
             val query = binding.searchEditText.text.toString().trim()
             if (query.isNotEmpty() && query.length >= 2) {
+                // 隐藏之前的结果，开始新搜索
+                binding.recyclerView.visibility = android.view.View.GONE
                 viewModel.search(query)
+            } else {
+                Toast.makeText(this, R.string.search_hint_short, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -52,6 +57,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.movies.observe(this) { movieList ->
             adapter.updateMovies(movieList)
+            // Show or hide the RecyclerView based on the movie list
+            if (movieList.isNotEmpty()) {
+                binding.recyclerView.visibility = android.view.View.VISIBLE
+            } else {
+                binding.recyclerView.visibility = android.view.View.GONE
+                Toast.makeText(this, R.string.no_movies_found, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

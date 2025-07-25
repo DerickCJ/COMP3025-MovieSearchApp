@@ -18,4 +18,12 @@
     
     <!-- Divider color -->
     <color name="divider_color">#FFE0E0E0</color>
+    
+    <!-- Card colors -->
+    <color name="card_background">#FFFFFFFF</color>
+    <color name="search_card_background">#FFFFFFFF</color>
+    
+    <!-- Rating and accent colors -->
+    <color name="rating_star">#FFFFC107</color>
+    <color name="rating_text">#FF4CAF50</color>
 </resources>

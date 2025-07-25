@@ -25,12 +25,14 @@ class MovieAdapter(
         holder.binding.apply {
             titleTextView.text = movie.Title
             yearTextView.text = movie.Year
-            genreTextView.text = "Movie"
+            genreTextView.text = movie.Type
             imdbIdTextView.text = "IMDb: ${movie.imdbID}"
 
             // Use Glide to load the poster image
             Glide.with(posterImageView.context)
                 .load(movie.Poster)
+                .placeholder(android.R.drawable.ic_menu_gallery)
+                .error(android.R.drawable.ic_menu_report_image)
                 .into(posterImageView)
 
             root.setOnClickListener {

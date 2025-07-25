@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">MovieSearchApp</string>
     <string name="app_title">Movie Search</string>
+    <string name="app_subtitle">Discover your favorite movies</string>
     <string name="hint_search">Search for movies...</string>
     <string name="button_search">Search</string>
     <string name="poster">Poster</string>
     <string name="button_back">Back</string>
     <string name="logo_content_description">Movie Search Logo</string>
+    <string name="search_hint_short">Please enter at least 2 characters</string>
+    <string name="button_clicked">Button clicked!</string>
+    <string name="no_movies_found">No movies found</string>
 </resources>

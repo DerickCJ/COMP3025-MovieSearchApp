@@ -1,66 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/background_color"
     tools:context=".MainActivity">
 
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="@dimen/logo_size"
-        android:layout_height="@dimen/logo_size"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/logo_content_description"
-        android:layout_marginTop="@dimen/large_margin"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- App Title -->
-    <TextView
-        android:id="@+id/appTitle"
-        android:layout_width="wrap_content"
+    <!-- Header Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_title"
-        android:textSize="@dimen/title_text_size"
-        android:textStyle="bold"
-        android:textColor="@color/primary_text_color"
-        android:layout_marginTop="@dimen/medium_margin"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/marginTop"
+        android:background="@color/primary_color">
 
-    <!-- Search Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/searchCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/large_margin"
-        android:layout_marginEnd="@dimen/large_margin"
-        android:layout_marginTop="@dimen/large_margin"
-        app:cardCornerRadius="@dimen/card_corner_radius"
-        app:cardElevation="@dimen/card_elevation"
-        app:cardBackgroundColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/appTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/logo_size"
+            android:layout_height="@dimen/logo_size"
+            android:src="@drawable/logo"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:contentDescription="@string/app_name" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- App Title -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/medium_margin"
-            android:gravity="center_vertical">
+            android:text="@string/app_title"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/small_margin" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_subtitle"
+            android:textSize="@dimen/search_text_size"
+            android:textColor="@android:color/white"
+            android:alpha="0.8" />
+
+    </LinearLayout>
+
+    <!-- Search Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/marginEnd"
+            app:cardCornerRadius="@dimen/medium_margin"
+            app:cardElevation="@dimen/small_margin"
+            app:cardBackgroundColor="@color/card_background">
 
             <EditText
                 android:id="@+id/searchEditText"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/search_box_height"
-                android:layout_weight="1"
                 android:hint="@string/hint_search"
                 android:inputType="text"
                 android:background="@null"
@@ -69,48 +77,32 @@
                 android:textColor="@color/primary_text_color"
                 android:textColorHint="@color/hint_text_color"
                 android:textSize="@dimen/search_text_size"
-                android:autofillHints="movieName"
-                android:maxLines="1"
-                android:imeOptions="actionSearch" />
+                android:maxLines="1" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="@dimen/divider_height"
-                android:background="@color/divider_color"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginEnd="@dimen/small_margin" />
+        </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/searchButton"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/search_box_height"
-                android:text="@string/button_search"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/button_text_size"
-                android:background="@color/primary_color"
-                android:paddingStart="@dimen/large_margin"
-                android:paddingEnd="@dimen/large_margin"
-                android:layout_marginStart="@dimen/small_margin"
-                style="?attr/materialButtonStyle" />
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/search_box_height"
+            android:text="@string/button_search"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text_size"
+            android:paddingStart="@dimen/large_margin"
+            android:paddingEnd="@dimen/large_margin" />
 
-        </LinearLayout>
+    </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <!-- Search Result -->
+    <!-- Results Section -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/large_margin"
-        android:layout_marginStart="@dimen/medium_margin"
-        android:layout_marginEnd="@dimen/medium_margin"
-        android:layout_marginBottom="@dimen/medium_margin"
-        android:clipToPadding="false"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
         android:paddingBottom="@dimen/medium_margin"
-        app:layout_constraintTop_toBottomOf="@id/searchCard"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:clipToPadding="false" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
