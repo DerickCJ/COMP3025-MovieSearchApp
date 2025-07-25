@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding.searchButton.setOnClickListener {
             val query = binding.searchEditText.text.toString().trim()
             if (query.isNotEmpty() && query.length >= 2) {
-                // 隐藏之前的结果，开始新搜索
+                // Clear the previous search results
                 binding.recyclerView.visibility = android.view.View.GONE
                 viewModel.search(query)
             } else {

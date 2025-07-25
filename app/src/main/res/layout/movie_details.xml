@@ -1,89 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/detailScrollView"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding">
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    android:padding="@dimen/medium_margin">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- Movie Poster Section -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/lwidth"
+        android:layout_height="@dimen/height300"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/medium_margin"
+        app:cardCornerRadius="@dimen/medium_margin"
+        app:cardElevation="@dimen/card_elevation">
 
         <ImageView
             android:id="@+id/detailPosterImageView"
-            android:layout_width="@dimen/lwidth"
-            android:layout_height="@dimen/height300"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:background="@color/divider_color"
-            android:contentDescription="@string/poster" />
-
-        <TextView
-            android:id="@+id/detailTitleTextView"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/padding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/detailDirectorTextView"
-            android:layout_marginTop="@dimen/margin8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/detailActorsTextView"
-            android:layout_marginTop="@dimen/margin4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/detailGenreTextView"
-            android:layout_marginTop="@dimen/margin4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/detailYearTextView"
-            android:layout_marginTop="@dimen/margin4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/detailRatingTextView"
-            android:layout_marginTop="@dimen/margin4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/detailPlotLabel"
-            android:text=""
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/marginEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/detailPlotTextView"
-            android:layout_marginTop="@dimen/margin4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@color/divider_color"
+            android:contentDescription="@string/movie_poster"
+            tools:src="" />
 
-        <Button
-            android:id="@+id/backButton"
-            android:layout_marginTop="@dimen/marginTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_back" />
-    </LinearLayout>
-</ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Movie Information Section -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/medium_margin"
+        app:cardCornerRadius="@dimen/medium_margin"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardBackgroundColor="@color/card_background">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/medium_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detailTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textSize"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text_color"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/detailYearTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/secondary_text_color"
+                    android:background="@drawable/year_background"
+                    android:paddingStart="@dimen/small_margin"
+                    android:paddingEnd="@dimen/small_margin"
+                    android:paddingTop="@dimen/margin4"
+                    android:paddingBottom="@dimen/margin4"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/detailGenreTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/accent_color"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/detailDirectorTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin4"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/primary_text_color"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/detailActorsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin4"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/primary_text_color"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/detailRatingTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/rating_text"
+                    android:textStyle="bold"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/detailPlotLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/plot_label"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/search_text_size"
+                    android:textColor="@color/primary_text_color"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:layout_marginBottom="@dimen/small_margin" />
+
+                <TextView
+                    android:id="@+id/detailPlotTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/primary_text_color"
+                    android:lineSpacingExtra="@dimen/margin2"
+                    tools:text="" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Back Button Section -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        android:textAllCaps="false"
+        android:textSize="@dimen/search_text_size"
+        android:paddingVertical="@dimen/marginEnd" />
+
+</LinearLayout>

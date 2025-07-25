@@ -10,4 +10,13 @@
     <string name="search_hint_short">Please enter at least 2 characters</string>
     <string name="button_clicked">Button clicked!</string>
     <string name="no_movies_found">No movies found</string>
+    
+    <!-- Movie Details Strings -->
+    <string name="plot_label">Plot Summary</string>
+    <string name="director_label">Director: %s</string>
+    <string name="actors_label">Cast: %s</string>
+    <string name="genre_label">Genre: %s</string>
+    <string name="year_label">Year: %s</string>
+    <string name="rating_label">Rating: %s</string>
+    <string name="movie_poster">Movie Poster</string>
 </resources>
